@@ -1,0 +1,1951 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20201222 16:47:29.070" generator="Robot 3.0.4 (Python 2.7.15 on win32)">
+<suite source="C:\Users\THANATHIP N\TestCase\Reversal\TS001_EN_Reversal_Cash_Payment.robot" id="s1" name="TS001 EN Reversal Cash Payment">
+<test id="s1-t1" name="Reversal Cash Payment">
+<kw name="Post Setup">
+<kw name="Copy File" library="OperatingSystem">
+<doc>Copies the source file into the destination.</doc>
+<arguments>
+<arg>${dir_sim_reader_card_sale}</arg>
+<arg>${dir_post_config_ini}</arg>
+</arguments>
+<msg timestamp="20201222 16:47:29.911" html="yes" level="INFO">Copied file from '&lt;a href="file://C:\Users\THANATHIP N\TestCase\Backupsimreader\Reversal\Std_Adl_Status_2\SimulateCardReader.ini"&gt;C:\Users\THANATHIP N\TestCase\Backupsimreader\Reversal\Std_Adl_Status_2\SimulateCardReader.ini&lt;/a&gt;' to '&lt;a href="file://C:\AFC\POST\POSTApplication\ConfigINI\SimulateCardReader.ini"&gt;C:\AFC\POST\POSTApplication\ConfigINI\SimulateCardReader.ini&lt;/a&gt;'.</msg>
+<status status="PASS" endtime="20201222 16:47:29.911" starttime="20201222 16:47:29.907"></status>
+</kw>
+<kw name="Fetch Configuration From Excel">
+<arguments>
+<arg>${Project_Name}</arg>
+<arg>${Excelname}</arg>
+<arg>Environment</arg>
+</arguments>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Test Data for Excel Name : ${ExcelName}</arg>
+</arguments>
+<msg timestamp="20201222 16:47:29.913" level="INFO">Test Data for Excel Name : Data_Reversal_TS001_EN_Cash_Payment.xlsx</msg>
+<status status="PASS" endtime="20201222 16:47:29.913" starttime="20201222 16:47:29.912"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>C:\\Users\\THANATHIP N\\TestCase</arg>
+</arguments>
+<assign>
+<var>${test_dir}</var>
+</assign>
+<msg timestamp="20201222 16:47:29.913" level="INFO">${test_dir} = C:\Users\THANATHIP N\TestCase</msg>
+<status status="PASS" endtime="20201222 16:47:29.913" starttime="20201222 16:47:29.913"></status>
+</kw>
+<kw name="Open Excel File" library="ExcelManager">
+<arguments>
+<arg>${test_dir}\\Test Data\\${ExcelName}</arg>
+</arguments>
+<status status="PASS" endtime="20201222 16:47:29.929" starttime="20201222 16:47:29.913"></status>
+</kw>
+<kw name="Get Row Count" library="ExcelManager">
+<arguments>
+<arg>${SheetName}</arg>
+</arguments>
+<assign>
+<var>${rowcount}</var>
+</assign>
+<msg timestamp="20201222 16:47:29.930" level="INFO">${rowcount} = 6</msg>
+<status status="PASS" endtime="20201222 16:47:29.930" starttime="20201222 16:47:29.929"></status>
+</kw>
+<kw name="Get Cell Value By Column" library="ExcelManager">
+<arguments>
+<arg>${SheetName}</arg>
+<arg>1</arg>
+</arguments>
+<assign>
+<var>@{name}</var>
+</assign>
+<msg timestamp="20201222 16:47:29.930" level="INFO">${POSTAPP_PATH}
+${POST_USER}
+${POST_PASS}
+${ROLE}
+${Default_Timeout}</msg>
+<msg timestamp="20201222 16:47:29.930" level="INFO">@{name} = [ ${POSTAPP_PATH} | ${POST_USER} | ${POST_PASS} | ${ROLE} | ${Default_Timeout} ]</msg>
+<status status="PASS" endtime="20201222 16:47:29.930" starttime="20201222 16:47:29.930"></status>
+</kw>
+<kw name="Get Cell Value By Column" library="ExcelManager">
+<arguments>
+<arg>${SheetName}</arg>
+<arg>2</arg>
+</arguments>
+<assign>
+<var>@{value}</var>
+</assign>
+<msg timestamp="20201222 16:47:29.931" level="INFO">C:/AFC/POST/POSTApplication/POSTApplication.exe
+65537
+Poch5191
+Operator
+20</msg>
+<msg timestamp="20201222 16:47:29.931" level="INFO">@{value} = [ C:/AFC/POST/POSTApplication/POSTApplication.exe | 65537 | Poch5191 | Operator | 20 ]</msg>
+<status status="PASS" endtime="20201222 16:47:29.931" starttime="20201222 16:47:29.931"></status>
+</kw>
+<kw type="for" name="${INDEX} IN RANGE [ 0 | ${rowcount-1} ]">
+<kw type="foritem" name="${INDEX} = 0">
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${name[${INDEX}]}</arg>
+<arg>${value[${INDEX}]}</arg>
+</arguments>
+<msg timestamp="20201222 16:47:29.933" level="INFO">${POSTAPP_PATH} = C:/AFC/POST/POSTApplication/POSTApplication.exe</msg>
+<status status="PASS" endtime="20201222 16:47:29.933" starttime="20201222 16:47:29.932"></status>
+</kw>
+<status status="PASS" endtime="20201222 16:47:29.933" starttime="20201222 16:47:29.932"></status>
+</kw>
+<kw type="foritem" name="${INDEX} = 1">
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${name[${INDEX}]}</arg>
+<arg>${value[${INDEX}]}</arg>
+</arguments>
+<msg timestamp="20201222 16:47:29.934" level="INFO">${POST_USER} = 65537</msg>
+<status status="PASS" endtime="20201222 16:47:29.935" starttime="20201222 16:47:29.934"></status>
+</kw>
+<status status="PASS" endtime="20201222 16:47:29.935" starttime="20201222 16:47:29.933"></status>
+</kw>
+<kw type="foritem" name="${INDEX} = 2">
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${name[${INDEX}]}</arg>
+<arg>${value[${INDEX}]}</arg>
+</arguments>
+<msg timestamp="20201222 16:47:29.936" level="INFO">${POST_PASS} = Poch5191</msg>
+<status status="PASS" endtime="20201222 16:47:29.936" starttime="20201222 16:47:29.935"></status>
+</kw>
+<status status="PASS" endtime="20201222 16:47:29.936" starttime="20201222 16:47:29.935"></status>
+</kw>
+<kw type="foritem" name="${INDEX} = 3">
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${name[${INDEX}]}</arg>
+<arg>${value[${INDEX}]}</arg>
+</arguments>
+<msg timestamp="20201222 16:47:29.937" level="INFO">${ROLE} = Operator</msg>
+<status status="PASS" endtime="20201222 16:47:29.937" starttime="20201222 16:47:29.936"></status>
+</kw>
+<status status="PASS" endtime="20201222 16:47:29.938" starttime="20201222 16:47:29.936"></status>
+</kw>
+<kw type="foritem" name="${INDEX} = 4">
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${name[${INDEX}]}</arg>
+<arg>${value[${INDEX}]}</arg>
+</arguments>
+<msg timestamp="20201222 16:47:29.939" level="INFO">${Default_Timeout} = 20</msg>
+<status status="PASS" endtime="20201222 16:47:29.939" starttime="20201222 16:47:29.938"></status>
+</kw>
+<status status="PASS" endtime="20201222 16:47:29.939" starttime="20201222 16:47:29.938"></status>
+</kw>
+<status status="PASS" endtime="20201222 16:47:29.939" starttime="20201222 16:47:29.931"></status>
+</kw>
+<status status="PASS" endtime="20201222 16:47:29.939" starttime="20201222 16:47:29.912"></status>
+</kw>
+<kw name="Fetch BUS Data From Excel">
+<arguments>
+<arg>${Project_Name}</arg>
+<arg>${TEST_NAME}</arg>
+<arg>${Excelname}</arg>
+<arg>BUS request</arg>
+</arguments>
+<assign>
+<var>@{TestDataRequest}</var>
+</assign>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Test Data for Excel Name : ${ExcelName}</arg>
+</arguments>
+<msg timestamp="20201222 16:47:29.940" level="INFO">Test Data for Excel Name : Data_Reversal_TS001_EN_Cash_Payment.xlsx</msg>
+<status status="PASS" endtime="20201222 16:47:29.941" starttime="20201222 16:47:29.940"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<assign>
+<var>${TestData}</var>
+</assign>
+<msg timestamp="20201222 16:47:29.941" level="INFO">${TestData} = </msg>
+<status status="PASS" endtime="20201222 16:47:29.941" starttime="20201222 16:47:29.941"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>C:\\Users\\THANATHIP N\\TestCase</arg>
+</arguments>
+<assign>
+<var>${test_dir}</var>
+</assign>
+<msg timestamp="20201222 16:47:29.941" level="INFO">${test_dir} = C:\Users\THANATHIP N\TestCase</msg>
+<status status="PASS" endtime="20201222 16:47:29.941" starttime="20201222 16:47:29.941"></status>
+</kw>
+<kw name="Open Excel File" library="ExcelManager">
+<arguments>
+<arg>${test_dir}\\Test Data\\${ExcelName}</arg>
+</arguments>
+<status status="PASS" endtime="20201222 16:47:29.954" starttime="20201222 16:47:29.942"></status>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<assign>
+<var>${listdata_api}</var>
+</assign>
+<msg timestamp="20201222 16:47:29.955" level="INFO">${listdata_api} = []</msg>
+<status status="PASS" endtime="20201222 16:47:29.955" starttime="20201222 16:47:29.954"></status>
+</kw>
+<kw name="Get Column Count" library="ExcelManager">
+<arguments>
+<arg>${SheetName}</arg>
+</arguments>
+<assign>
+<var>${colcount}</var>
+</assign>
+<msg timestamp="20201222 16:47:29.955" level="INFO">${colcount} = 4</msg>
+<status status="PASS" endtime="20201222 16:47:29.955" starttime="20201222 16:47:29.955"></status>
+</kw>
+<kw type="for" name="${iCol} IN RANGE [ 4 | ${colcount+1} ]">
+<kw type="foritem" name="${iCol} = 4">
+<kw name="Get Cell Value By Position" library="ExcelManager">
+<arguments>
+<arg>${SheetName}</arg>
+<arg>1</arg>
+<arg>${iCol}</arg>
+</arguments>
+<assign>
+<var>${head_title}</var>
+</assign>
+<msg timestamp="20201222 16:47:29.956" level="INFO">REQUEST VALUE 1</msg>
+<msg timestamp="20201222 16:47:29.956" level="INFO">${head_title} =  REQUEST VALUE 1</msg>
+<status status="PASS" endtime="20201222 16:47:29.956" starttime="20201222 16:47:29.956"></status>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>Should Contain</arg>
+<arg>${head_title.strip().upper()}</arg>
+<arg>REQUEST VALUE</arg>
+</arguments>
+<assign>
+<var>${check_request}</var>
+</assign>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${head_title.strip().upper()}</arg>
+<arg>REQUEST VALUE</arg>
+</arguments>
+<status status="PASS" endtime="20201222 16:47:29.957" starttime="20201222 16:47:29.957"></status>
+</kw>
+<msg timestamp="20201222 16:47:29.957" level="INFO">${check_request} = True</msg>
+<status status="PASS" endtime="20201222 16:47:29.957" starttime="20201222 16:47:29.956"></status>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>Should Contain</arg>
+<arg>${head_title.strip().upper()}</arg>
+<arg>RESPONSE VALUE</arg>
+</arguments>
+<assign>
+<var>${check_response}</var>
+</assign>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${head_title.strip().upper()}</arg>
+<arg>RESPONSE VALUE</arg>
+</arguments>
+<msg timestamp="20201222 16:47:29.958" level="FAIL">'REQUEST VALUE 1' does not contain 'RESPONSE VALUE'</msg>
+<msg timestamp="20201222 16:47:29.962" level="INFO">whitelib_screenshot_89.png</msg>
+<msg timestamp="20201222 16:47:29.963" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="whitelib_screenshot_89.png"&gt;&lt;img src="whitelib_screenshot_89.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="FAIL" endtime="20201222 16:47:29.958" starttime="20201222 16:47:29.958"></status>
+</kw>
+<msg timestamp="20201222 16:47:30.047" level="INFO">${check_response} = False</msg>
+<status status="PASS" endtime="20201222 16:47:30.047" starttime="20201222 16:47:29.957"></status>
+</kw>
+<kw name="Set Variable If" library="BuiltIn">
+<doc>Sets variable based on the given condition.</doc>
+<arguments>
+<arg>${check_request}</arg>
+<arg>${True}</arg>
+</arguments>
+<assign>
+<var>${check_title}</var>
+</assign>
+<msg timestamp="20201222 16:47:30.048" level="INFO">${check_title} = True</msg>
+<status status="PASS" endtime="20201222 16:47:30.048" starttime="20201222 16:47:30.047"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${check_title}</arg>
+<arg>Fetch BUS Data From Excel To List Level</arg>
+<arg>${SheetName}</arg>
+<arg>${Testcase}</arg>
+<arg>${iCol}</arg>
+</arguments>
+<assign>
+<var>${list_datatest}</var>
+</assign>
+<kw name="Fetch BUS Data From Excel To List Level">
+<arguments>
+<arg>${SheetName}</arg>
+<arg>${Testcase}</arg>
+<arg>${iCol}</arg>
+</arguments>
+<kw name="Get Cell Value By Column" library="ExcelManager">
+<arguments>
+<arg>${SheetName}</arg>
+<arg>2</arg>
+</arguments>
+<assign>
+<var>@{api_testname}</var>
+</assign>
+<msg timestamp="20201222 16:47:30.049" level="INFO">Reversal Cash Payment
+Reversal Cash Payment
+Reversal Cash Payment
+Reversal Cash Payment</msg>
+<msg timestamp="20201222 16:47:30.050" level="INFO">@{api_testname} = [ Reversal Cash Payment | Reversal Cash Payment | Reversal Cash Payment | Reversal Cash Payment ]</msg>
+<status status="PASS" endtime="20201222 16:47:30.050" starttime="20201222 16:47:30.049"></status>
+</kw>
+<kw name="Get Cell Value By Column" library="ExcelManager">
+<arguments>
+<arg>${SheetName}</arg>
+<arg>3</arg>
+</arguments>
+<assign>
+<var>@{api_param}</var>
+</assign>
+<msg timestamp="20201222 16:47:30.050" level="INFO">TestDescription
+Add_Value
+Payment_Mode
+Cash_Amount_Received</msg>
+<msg timestamp="20201222 16:47:30.050" level="INFO">@{api_param} = [ TestDescription | Add_Value | Payment_Mode | Cash_Amount_Received ]</msg>
+<status status="PASS" endtime="20201222 16:47:30.050" starttime="20201222 16:47:30.050"></status>
+</kw>
+<kw name="Get Cell Value By Column" library="ExcelManager">
+<arguments>
+<arg>${SheetName}</arg>
+<arg>${Column}</arg>
+</arguments>
+<assign>
+<var>@{data_request}</var>
+</assign>
+<msg timestamp="20201222 16:47:30.051" level="INFO">TC001-Cash Payment no Change due
+100
+Cash
+100</msg>
+<msg timestamp="20201222 16:47:30.051" level="INFO">@{data_request} = [ TC001-Cash Payment no Change due | 100 | Cash | 100 ]</msg>
+<status status="PASS" endtime="20201222 16:47:30.051" starttime="20201222 16:47:30.051"></status>
+</kw>
+<kw name="Get Row Count" library="ExcelManager">
+<arguments>
+<arg>${SheetName}</arg>
+</arguments>
+<assign>
+<var>${rowcount}</var>
+</assign>
+<msg timestamp="20201222 16:47:30.052" level="INFO">${rowcount} = 5</msg>
+<status status="PASS" endtime="20201222 16:47:30.052" starttime="20201222 16:47:30.051"></status>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<assign>
+<var>${datalist_main}</var>
+</assign>
+<msg timestamp="20201222 16:47:30.052" level="INFO">${datalist_main} = []</msg>
+<status status="PASS" endtime="20201222 16:47:30.052" starttime="20201222 16:47:30.052"></status>
+</kw>
+<kw type="for" name="${iRow} IN RANGE [ 0 | ${rowcount} ]">
+<kw type="foritem" name="${iRow} = 0">
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<assign>
+<var>${datalist_sub}</var>
+</assign>
+<msg timestamp="20201222 16:47:30.053" level="INFO">${datalist_sub} = []</msg>
+<status status="PASS" endtime="20201222 16:47:30.053" starttime="20201222 16:47:30.052"></status>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>Variable Should Not Exist</arg>
+<arg>${api_testname[${iRow}]}</arg>
+</arguments>
+<assign>
+<var>${check_datarow}</var>
+</assign>
+<kw name="Variable Should Not Exist" library="BuiltIn">
+<doc>Fails if the given variable exists within the current scope.</doc>
+<arguments>
+<arg>${api_testname[${iRow}]}</arg>
+</arguments>
+<msg timestamp="20201222 16:47:30.054" level="FAIL">Variable ${api_testname[0]} exists.</msg>
+<msg timestamp="20201222 16:47:30.058" level="INFO">whitelib_screenshot_90.png</msg>
+<msg timestamp="20201222 16:47:30.059" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="whitelib_screenshot_90.png"&gt;&lt;img src="whitelib_screenshot_90.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="FAIL" endtime="20201222 16:47:30.054" starttime="20201222 16:47:30.053"></status>
+</kw>
+<msg timestamp="20201222 16:47:30.127" level="INFO">${check_datarow} = False</msg>
+<status status="PASS" endtime="20201222 16:47:30.127" starttime="20201222 16:47:30.053"></status>
+</kw>
+<kw name="Continue For Loop If" library="BuiltIn">
+<doc>Skips the current for loop iteration if the ``condition`` is true.</doc>
+<arguments>
+<arg>${check_datarow}</arg>
+</arguments>
+<status status="PASS" endtime="20201222 16:47:30.127" starttime="20201222 16:47:30.127"></status>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<doc>Converts the given item to a Unicode string.</doc>
+<arguments>
+<arg>${api_testname[${iRow}]}</arg>
+</arguments>
+<assign>
+<var>${apidata_testname}</var>
+</assign>
+<msg timestamp="20201222 16:47:30.128" level="INFO">${apidata_testname} = Reversal Cash Payment</msg>
+<status status="PASS" endtime="20201222 16:47:30.128" starttime="20201222 16:47:30.128"></status>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<doc>Converts the given item to a Unicode string.</doc>
+<arguments>
+<arg>${Testcase}</arg>
+</arguments>
+<assign>
+<var>${Testcase}</var>
+</assign>
+<msg timestamp="20201222 16:47:30.129" level="INFO">${Testcase} = Reversal Cash Payment</msg>
+<status status="PASS" endtime="20201222 16:47:30.129" starttime="20201222 16:47:30.128"></status>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>Should Be Equal</arg>
+<arg>${apidata_testname.strip().upper()}</arg>
+<arg>${Testcase.strip().upper()}</arg>
+</arguments>
+<assign>
+<var>${check_testname}</var>
+</assign>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${apidata_testname.strip().upper()}</arg>
+<arg>${Testcase.strip().upper()}</arg>
+</arguments>
+<status status="PASS" endtime="20201222 16:47:30.130" starttime="20201222 16:47:30.129"></status>
+</kw>
+<msg timestamp="20201222 16:47:30.130" level="INFO">${check_testname} = True</msg>
+<status status="PASS" endtime="20201222 16:47:30.130" starttime="20201222 16:47:30.129"></status>
+</kw>
+<kw name="Set Variable If" library="BuiltIn">
+<doc>Sets variable based on the given condition.</doc>
+<arguments>
+<arg>${check_testname}</arg>
+<arg>${api_param[${iRow}]}</arg>
+</arguments>
+<assign>
+<var>${variable_name}</var>
+</assign>
+<msg timestamp="20201222 16:47:30.131" level="INFO">${variable_name} = TestDescription</msg>
+<status status="PASS" endtime="20201222 16:47:30.131" starttime="20201222 16:47:30.130"></status>
+</kw>
+<kw name="Encode String To Bytes" library="String">
+<doc>Encodes the given Unicode ``string`` to bytes using the given ``encoding``.</doc>
+<arguments>
+<arg>${variable_name}</arg>
+<arg>UTF-8</arg>
+</arguments>
+<assign>
+<var>${variable_name}</var>
+</assign>
+<msg timestamp="20201222 16:47:30.131" level="INFO">${variable_name} = TestDescription</msg>
+<status status="PASS" endtime="20201222 16:47:30.131" starttime="20201222 16:47:30.131"></status>
+</kw>
+<kw name="Decode Bytes To String" library="String">
+<doc>Decodes the given ``bytes`` to a Unicode string using the given ``encoding``.</doc>
+<arguments>
+<arg>${variable_name}</arg>
+<arg>UTF-8</arg>
+</arguments>
+<assign>
+<var>${variable_name}</var>
+</assign>
+<msg timestamp="20201222 16:47:30.132" level="INFO">${variable_name} = TestDescription</msg>
+<status status="PASS" endtime="20201222 16:47:30.132" starttime="20201222 16:47:30.131"></status>
+</kw>
+<kw name="Set Variable If" library="BuiltIn">
+<doc>Sets variable based on the given condition.</doc>
+<arguments>
+<arg>${check_testname}</arg>
+<arg>${data_request[${iRow}]}</arg>
+</arguments>
+<assign>
+<var>${variable_value}</var>
+</assign>
+<msg timestamp="20201222 16:47:30.132" level="INFO">${variable_value} = TC001-Cash Payment no Change due</msg>
+<status status="PASS" endtime="20201222 16:47:30.132" starttime="20201222 16:47:30.132"></status>
+</kw>
+<kw name="Encode String To Bytes" library="String">
+<doc>Encodes the given Unicode ``string`` to bytes using the given ``encoding``.</doc>
+<arguments>
+<arg>${variable_value}</arg>
+<arg>UTF-8</arg>
+</arguments>
+<assign>
+<var>${variable_value}</var>
+</assign>
+<msg timestamp="20201222 16:47:30.133" level="INFO">${variable_value} = TC001-Cash Payment no Change due</msg>
+<status status="PASS" endtime="20201222 16:47:30.133" starttime="20201222 16:47:30.133"></status>
+</kw>
+<kw name="Decode Bytes To String" library="String">
+<doc>Decodes the given ``bytes`` to a Unicode string using the given ``encoding``.</doc>
+<arguments>
+<arg>${variable_value}</arg>
+<arg>UTF-8</arg>
+</arguments>
+<assign>
+<var>${variable_value}</var>
+</assign>
+<msg timestamp="20201222 16:47:30.134" level="INFO">${variable_value} = TC001-Cash Payment no Change due</msg>
+<status status="PASS" endtime="20201222 16:47:30.134" starttime="20201222 16:47:30.133"></status>
+</kw>
+<kw name="Append To List" library="Collections">
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<arguments>
+<arg>${datalist_sub}</arg>
+<arg>${variable_name}</arg>
+<arg>${variable_value}</arg>
+</arguments>
+<status status="PASS" endtime="20201222 16:47:30.134" starttime="20201222 16:47:30.134"></status>
+</kw>
+<kw name="Append To List" library="Collections">
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<arguments>
+<arg>${datalist_main}</arg>
+<arg>${datalist_sub}</arg>
+</arguments>
+<status status="PASS" endtime="20201222 16:47:30.135" starttime="20201222 16:47:30.134"></status>
+</kw>
+<status status="PASS" endtime="20201222 16:47:30.135" starttime="20201222 16:47:30.052"></status>
+</kw>
+<kw type="foritem" name="${iRow} = 1">
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<assign>
+<var>${datalist_sub}</var>
+</assign>
+<msg timestamp="20201222 16:47:30.135" level="INFO">${datalist_sub} = []</msg>
+<status status="PASS" endtime="20201222 16:47:30.135" starttime="20201222 16:47:30.135"></status>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>Variable Should Not Exist</arg>
+<arg>${api_testname[${iRow}]}</arg>
+</arguments>
+<assign>
+<var>${check_datarow}</var>
+</assign>
+<kw name="Variable Should Not Exist" library="BuiltIn">
+<doc>Fails if the given variable exists within the current scope.</doc>
+<arguments>
+<arg>${api_testname[${iRow}]}</arg>
+</arguments>
+<msg timestamp="20201222 16:47:30.136" level="FAIL">Variable ${api_testname[1]} exists.</msg>
+<msg timestamp="20201222 16:47:30.141" level="INFO">whitelib_screenshot_91.png</msg>
+<msg timestamp="20201222 16:47:30.141" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="whitelib_screenshot_91.png"&gt;&lt;img src="whitelib_screenshot_91.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="FAIL" endtime="20201222 16:47:30.137" starttime="20201222 16:47:30.136"></status>
+</kw>
+<msg timestamp="20201222 16:47:30.205" level="INFO">${check_datarow} = False</msg>
+<status status="PASS" endtime="20201222 16:47:30.205" starttime="20201222 16:47:30.135"></status>
+</kw>
+<kw name="Continue For Loop If" library="BuiltIn">
+<doc>Skips the current for loop iteration if the ``condition`` is true.</doc>
+<arguments>
+<arg>${check_datarow}</arg>
+</arguments>
+<status status="PASS" endtime="20201222 16:47:30.206" starttime="20201222 16:47:30.205"></status>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<doc>Converts the given item to a Unicode string.</doc>
+<arguments>
+<arg>${api_testname[${iRow}]}</arg>
+</arguments>
+<assign>
+<var>${apidata_testname}</var>
+</assign>
+<msg timestamp="20201222 16:47:30.206" level="INFO">${apidata_testname} = Reversal Cash Payment</msg>
+<status status="PASS" endtime="20201222 16:47:30.206" starttime="20201222 16:47:30.206"></status>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<doc>Converts the given item to a Unicode string.</doc>
+<arguments>
+<arg>${Testcase}</arg>
+</arguments>
+<assign>
+<var>${Testcase}</var>
+</assign>
+<msg timestamp="20201222 16:47:30.207" level="INFO">${Testcase} = Reversal Cash Payment</msg>
+<status status="PASS" endtime="20201222 16:47:30.207" starttime="20201222 16:47:30.207"></status>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>Should Be Equal</arg>
+<arg>${apidata_testname.strip().upper()}</arg>
+<arg>${Testcase.strip().upper()}</arg>
+</arguments>
+<assign>
+<var>${check_testname}</var>
+</assign>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${apidata_testname.strip().upper()}</arg>
+<arg>${Testcase.strip().upper()}</arg>
+</arguments>
+<status status="PASS" endtime="20201222 16:47:30.208" starttime="20201222 16:47:30.207"></status>
+</kw>
+<msg timestamp="20201222 16:47:30.208" level="INFO">${check_testname} = True</msg>
+<status status="PASS" endtime="20201222 16:47:30.208" starttime="20201222 16:47:30.207"></status>
+</kw>
+<kw name="Set Variable If" library="BuiltIn">
+<doc>Sets variable based on the given condition.</doc>
+<arguments>
+<arg>${check_testname}</arg>
+<arg>${api_param[${iRow}]}</arg>
+</arguments>
+<assign>
+<var>${variable_name}</var>
+</assign>
+<msg timestamp="20201222 16:47:30.209" level="INFO">${variable_name} = Add_Value</msg>
+<status status="PASS" endtime="20201222 16:47:30.209" starttime="20201222 16:47:30.208"></status>
+</kw>
+<kw name="Encode String To Bytes" library="String">
+<doc>Encodes the given Unicode ``string`` to bytes using the given ``encoding``.</doc>
+<arguments>
+<arg>${variable_name}</arg>
+<arg>UTF-8</arg>
+</arguments>
+<assign>
+<var>${variable_name}</var>
+</assign>
+<msg timestamp="20201222 16:47:30.209" level="INFO">${variable_name} = Add_Value</msg>
+<status status="PASS" endtime="20201222 16:47:30.209" starttime="20201222 16:47:30.209"></status>
+</kw>
+<kw name="Decode Bytes To String" library="String">
+<doc>Decodes the given ``bytes`` to a Unicode string using the given ``encoding``.</doc>
+<arguments>
+<arg>${variable_name}</arg>
+<arg>UTF-8</arg>
+</arguments>
+<assign>
+<var>${variable_name}</var>
+</assign>
+<msg timestamp="20201222 16:47:30.210" level="INFO">${variable_name} = Add_Value</msg>
+<status status="PASS" endtime="20201222 16:47:30.210" starttime="20201222 16:47:30.210"></status>
+</kw>
+<kw name="Set Variable If" library="BuiltIn">
+<doc>Sets variable based on the given condition.</doc>
+<arguments>
+<arg>${check_testname}</arg>
+<arg>${data_request[${iRow}]}</arg>
+</arguments>
+<assign>
+<var>${variable_value}</var>
+</assign>
+<msg timestamp="20201222 16:47:30.211" level="INFO">${variable_value} = 100</msg>
+<status status="PASS" endtime="20201222 16:47:30.211" starttime="20201222 16:47:30.210"></status>
+</kw>
+<kw name="Encode String To Bytes" library="String">
+<doc>Encodes the given Unicode ``string`` to bytes using the given ``encoding``.</doc>
+<arguments>
+<arg>${variable_value}</arg>
+<arg>UTF-8</arg>
+</arguments>
+<assign>
+<var>${variable_value}</var>
+</assign>
+<msg timestamp="20201222 16:47:30.211" level="INFO">${variable_value} = 100</msg>
+<status status="PASS" endtime="20201222 16:47:30.211" starttime="20201222 16:47:30.211"></status>
+</kw>
+<kw name="Decode Bytes To String" library="String">
+<doc>Decodes the given ``bytes`` to a Unicode string using the given ``encoding``.</doc>
+<arguments>
+<arg>${variable_value}</arg>
+<arg>UTF-8</arg>
+</arguments>
+<assign>
+<var>${variable_value}</var>
+</assign>
+<msg timestamp="20201222 16:47:30.212" level="INFO">${variable_value} = 100</msg>
+<status status="PASS" endtime="20201222 16:47:30.212" starttime="20201222 16:47:30.212"></status>
+</kw>
+<kw name="Append To List" library="Collections">
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<arguments>
+<arg>${datalist_sub}</arg>
+<arg>${variable_name}</arg>
+<arg>${variable_value}</arg>
+</arguments>
+<status status="PASS" endtime="20201222 16:47:30.212" starttime="20201222 16:47:30.212"></status>
+</kw>
+<kw name="Append To List" library="Collections">
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<arguments>
+<arg>${datalist_main}</arg>
+<arg>${datalist_sub}</arg>
+</arguments>
+<status status="PASS" endtime="20201222 16:47:30.213" starttime="20201222 16:47:30.213"></status>
+</kw>
+<status status="PASS" endtime="20201222 16:47:30.213" starttime="20201222 16:47:30.135"></status>
+</kw>
+<kw type="foritem" name="${iRow} = 2">
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<assign>
+<var>${datalist_sub}</var>
+</assign>
+<msg timestamp="20201222 16:47:30.214" level="INFO">${datalist_sub} = []</msg>
+<status status="PASS" endtime="20201222 16:47:30.214" starttime="20201222 16:47:30.213"></status>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>Variable Should Not Exist</arg>
+<arg>${api_testname[${iRow}]}</arg>
+</arguments>
+<assign>
+<var>${check_datarow}</var>
+</assign>
+<kw name="Variable Should Not Exist" library="BuiltIn">
+<doc>Fails if the given variable exists within the current scope.</doc>
+<arguments>
+<arg>${api_testname[${iRow}]}</arg>
+</arguments>
+<msg timestamp="20201222 16:47:30.215" level="FAIL">Variable ${api_testname[2]} exists.</msg>
+<msg timestamp="20201222 16:47:30.219" level="INFO">whitelib_screenshot_92.png</msg>
+<msg timestamp="20201222 16:47:30.220" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="whitelib_screenshot_92.png"&gt;&lt;img src="whitelib_screenshot_92.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="FAIL" endtime="20201222 16:47:30.215" starttime="20201222 16:47:30.214"></status>
+</kw>
+<msg timestamp="20201222 16:47:30.289" level="INFO">${check_datarow} = False</msg>
+<status status="PASS" endtime="20201222 16:47:30.289" starttime="20201222 16:47:30.214"></status>
+</kw>
+<kw name="Continue For Loop If" library="BuiltIn">
+<doc>Skips the current for loop iteration if the ``condition`` is true.</doc>
+<arguments>
+<arg>${check_datarow}</arg>
+</arguments>
+<status status="PASS" endtime="20201222 16:47:30.289" starttime="20201222 16:47:30.289"></status>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<doc>Converts the given item to a Unicode string.</doc>
+<arguments>
+<arg>${api_testname[${iRow}]}</arg>
+</arguments>
+<assign>
+<var>${apidata_testname}</var>
+</assign>
+<msg timestamp="20201222 16:47:30.290" level="INFO">${apidata_testname} = Reversal Cash Payment</msg>
+<status status="PASS" endtime="20201222 16:47:30.290" starttime="20201222 16:47:30.289"></status>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<doc>Converts the given item to a Unicode string.</doc>
+<arguments>
+<arg>${Testcase}</arg>
+</arguments>
+<assign>
+<var>${Testcase}</var>
+</assign>
+<msg timestamp="20201222 16:47:30.290" level="INFO">${Testcase} = Reversal Cash Payment</msg>
+<status status="PASS" endtime="20201222 16:47:30.290" starttime="20201222 16:47:30.290"></status>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>Should Be Equal</arg>
+<arg>${apidata_testname.strip().upper()}</arg>
+<arg>${Testcase.strip().upper()}</arg>
+</arguments>
+<assign>
+<var>${check_testname}</var>
+</assign>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${apidata_testname.strip().upper()}</arg>
+<arg>${Testcase.strip().upper()}</arg>
+</arguments>
+<status status="PASS" endtime="20201222 16:47:30.291" starttime="20201222 16:47:30.291"></status>
+</kw>
+<msg timestamp="20201222 16:47:30.292" level="INFO">${check_testname} = True</msg>
+<status status="PASS" endtime="20201222 16:47:30.292" starttime="20201222 16:47:30.291"></status>
+</kw>
+<kw name="Set Variable If" library="BuiltIn">
+<doc>Sets variable based on the given condition.</doc>
+<arguments>
+<arg>${check_testname}</arg>
+<arg>${api_param[${iRow}]}</arg>
+</arguments>
+<assign>
+<var>${variable_name}</var>
+</assign>
+<msg timestamp="20201222 16:47:30.292" level="INFO">${variable_name} = Payment_Mode</msg>
+<status status="PASS" endtime="20201222 16:47:30.293" starttime="20201222 16:47:30.292"></status>
+</kw>
+<kw name="Encode String To Bytes" library="String">
+<doc>Encodes the given Unicode ``string`` to bytes using the given ``encoding``.</doc>
+<arguments>
+<arg>${variable_name}</arg>
+<arg>UTF-8</arg>
+</arguments>
+<assign>
+<var>${variable_name}</var>
+</assign>
+<msg timestamp="20201222 16:47:30.293" level="INFO">${variable_name} = Payment_Mode</msg>
+<status status="PASS" endtime="20201222 16:47:30.293" starttime="20201222 16:47:30.293"></status>
+</kw>
+<kw name="Decode Bytes To String" library="String">
+<doc>Decodes the given ``bytes`` to a Unicode string using the given ``encoding``.</doc>
+<arguments>
+<arg>${variable_name}</arg>
+<arg>UTF-8</arg>
+</arguments>
+<assign>
+<var>${variable_name}</var>
+</assign>
+<msg timestamp="20201222 16:47:30.294" level="INFO">${variable_name} = Payment_Mode</msg>
+<status status="PASS" endtime="20201222 16:47:30.294" starttime="20201222 16:47:30.293"></status>
+</kw>
+<kw name="Set Variable If" library="BuiltIn">
+<doc>Sets variable based on the given condition.</doc>
+<arguments>
+<arg>${check_testname}</arg>
+<arg>${data_request[${iRow}]}</arg>
+</arguments>
+<assign>
+<var>${variable_value}</var>
+</assign>
+<msg timestamp="20201222 16:47:30.294" level="INFO">${variable_value} = Cash</msg>
+<status status="PASS" endtime="20201222 16:47:30.294" starttime="20201222 16:47:30.294"></status>
+</kw>
+<kw name="Encode String To Bytes" library="String">
+<doc>Encodes the given Unicode ``string`` to bytes using the given ``encoding``.</doc>
+<arguments>
+<arg>${variable_value}</arg>
+<arg>UTF-8</arg>
+</arguments>
+<assign>
+<var>${variable_value}</var>
+</assign>
+<msg timestamp="20201222 16:47:30.295" level="INFO">${variable_value} = Cash</msg>
+<status status="PASS" endtime="20201222 16:47:30.295" starttime="20201222 16:47:30.295"></status>
+</kw>
+<kw name="Decode Bytes To String" library="String">
+<doc>Decodes the given ``bytes`` to a Unicode string using the given ``encoding``.</doc>
+<arguments>
+<arg>${variable_value}</arg>
+<arg>UTF-8</arg>
+</arguments>
+<assign>
+<var>${variable_value}</var>
+</assign>
+<msg timestamp="20201222 16:47:30.296" level="INFO">${variable_value} = Cash</msg>
+<status status="PASS" endtime="20201222 16:47:30.296" starttime="20201222 16:47:30.295"></status>
+</kw>
+<kw name="Append To List" library="Collections">
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<arguments>
+<arg>${datalist_sub}</arg>
+<arg>${variable_name}</arg>
+<arg>${variable_value}</arg>
+</arguments>
+<status status="PASS" endtime="20201222 16:47:30.296" starttime="20201222 16:47:30.296"></status>
+</kw>
+<kw name="Append To List" library="Collections">
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<arguments>
+<arg>${datalist_main}</arg>
+<arg>${datalist_sub}</arg>
+</arguments>
+<status status="PASS" endtime="20201222 16:47:30.297" starttime="20201222 16:47:30.296"></status>
+</kw>
+<status status="PASS" endtime="20201222 16:47:30.297" starttime="20201222 16:47:30.213"></status>
+</kw>
+<kw type="foritem" name="${iRow} = 3">
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<assign>
+<var>${datalist_sub}</var>
+</assign>
+<msg timestamp="20201222 16:47:30.298" level="INFO">${datalist_sub} = []</msg>
+<status status="PASS" endtime="20201222 16:47:30.298" starttime="20201222 16:47:30.297"></status>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>Variable Should Not Exist</arg>
+<arg>${api_testname[${iRow}]}</arg>
+</arguments>
+<assign>
+<var>${check_datarow}</var>
+</assign>
+<kw name="Variable Should Not Exist" library="BuiltIn">
+<doc>Fails if the given variable exists within the current scope.</doc>
+<arguments>
+<arg>${api_testname[${iRow}]}</arg>
+</arguments>
+<msg timestamp="20201222 16:47:30.299" level="FAIL">Variable ${api_testname[3]} exists.</msg>
+<msg timestamp="20201222 16:47:30.304" level="INFO">whitelib_screenshot_93.png</msg>
+<msg timestamp="20201222 16:47:30.304" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="whitelib_screenshot_93.png"&gt;&lt;img src="whitelib_screenshot_93.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="FAIL" endtime="20201222 16:47:30.299" starttime="20201222 16:47:30.299"></status>
+</kw>
+<msg timestamp="20201222 16:47:30.389" level="INFO">${check_datarow} = False</msg>
+<status status="PASS" endtime="20201222 16:47:30.389" starttime="20201222 16:47:30.298"></status>
+</kw>
+<kw name="Continue For Loop If" library="BuiltIn">
+<doc>Skips the current for loop iteration if the ``condition`` is true.</doc>
+<arguments>
+<arg>${check_datarow}</arg>
+</arguments>
+<status status="PASS" endtime="20201222 16:47:30.390" starttime="20201222 16:47:30.390"></status>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<doc>Converts the given item to a Unicode string.</doc>
+<arguments>
+<arg>${api_testname[${iRow}]}</arg>
+</arguments>
+<assign>
+<var>${apidata_testname}</var>
+</assign>
+<msg timestamp="20201222 16:47:30.391" level="INFO">${apidata_testname} = Reversal Cash Payment</msg>
+<status status="PASS" endtime="20201222 16:47:30.391" starttime="20201222 16:47:30.390"></status>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<doc>Converts the given item to a Unicode string.</doc>
+<arguments>
+<arg>${Testcase}</arg>
+</arguments>
+<assign>
+<var>${Testcase}</var>
+</assign>
+<msg timestamp="20201222 16:47:30.391" level="INFO">${Testcase} = Reversal Cash Payment</msg>
+<status status="PASS" endtime="20201222 16:47:30.391" starttime="20201222 16:47:30.391"></status>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>Should Be Equal</arg>
+<arg>${apidata_testname.strip().upper()}</arg>
+<arg>${Testcase.strip().upper()}</arg>
+</arguments>
+<assign>
+<var>${check_testname}</var>
+</assign>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${apidata_testname.strip().upper()}</arg>
+<arg>${Testcase.strip().upper()}</arg>
+</arguments>
+<status status="PASS" endtime="20201222 16:47:30.392" starttime="20201222 16:47:30.392"></status>
+</kw>
+<msg timestamp="20201222 16:47:30.392" level="INFO">${check_testname} = True</msg>
+<status status="PASS" endtime="20201222 16:47:30.393" starttime="20201222 16:47:30.391"></status>
+</kw>
+<kw name="Set Variable If" library="BuiltIn">
+<doc>Sets variable based on the given condition.</doc>
+<arguments>
+<arg>${check_testname}</arg>
+<arg>${api_param[${iRow}]}</arg>
+</arguments>
+<assign>
+<var>${variable_name}</var>
+</assign>
+<msg timestamp="20201222 16:47:30.393" level="INFO">${variable_name} = Cash_Amount_Received</msg>
+<status status="PASS" endtime="20201222 16:47:30.393" starttime="20201222 16:47:30.393"></status>
+</kw>
+<kw name="Encode String To Bytes" library="String">
+<doc>Encodes the given Unicode ``string`` to bytes using the given ``encoding``.</doc>
+<arguments>
+<arg>${variable_name}</arg>
+<arg>UTF-8</arg>
+</arguments>
+<assign>
+<var>${variable_name}</var>
+</assign>
+<msg timestamp="20201222 16:47:30.394" level="INFO">${variable_name} = Cash_Amount_Received</msg>
+<status status="PASS" endtime="20201222 16:47:30.394" starttime="20201222 16:47:30.393"></status>
+</kw>
+<kw name="Decode Bytes To String" library="String">
+<doc>Decodes the given ``bytes`` to a Unicode string using the given ``encoding``.</doc>
+<arguments>
+<arg>${variable_name}</arg>
+<arg>UTF-8</arg>
+</arguments>
+<assign>
+<var>${variable_name}</var>
+</assign>
+<msg timestamp="20201222 16:47:30.394" level="INFO">${variable_name} = Cash_Amount_Received</msg>
+<status status="PASS" endtime="20201222 16:47:30.394" starttime="20201222 16:47:30.394"></status>
+</kw>
+<kw name="Set Variable If" library="BuiltIn">
+<doc>Sets variable based on the given condition.</doc>
+<arguments>
+<arg>${check_testname}</arg>
+<arg>${data_request[${iRow}]}</arg>
+</arguments>
+<assign>
+<var>${variable_value}</var>
+</assign>
+<msg timestamp="20201222 16:47:30.395" level="INFO">${variable_value} = 100</msg>
+<status status="PASS" endtime="20201222 16:47:30.395" starttime="20201222 16:47:30.395"></status>
+</kw>
+<kw name="Encode String To Bytes" library="String">
+<doc>Encodes the given Unicode ``string`` to bytes using the given ``encoding``.</doc>
+<arguments>
+<arg>${variable_value}</arg>
+<arg>UTF-8</arg>
+</arguments>
+<assign>
+<var>${variable_value}</var>
+</assign>
+<msg timestamp="20201222 16:47:30.396" level="INFO">${variable_value} = 100</msg>
+<status status="PASS" endtime="20201222 16:47:30.396" starttime="20201222 16:47:30.395"></status>
+</kw>
+<kw name="Decode Bytes To String" library="String">
+<doc>Decodes the given ``bytes`` to a Unicode string using the given ``encoding``.</doc>
+<arguments>
+<arg>${variable_value}</arg>
+<arg>UTF-8</arg>
+</arguments>
+<assign>
+<var>${variable_value}</var>
+</assign>
+<msg timestamp="20201222 16:47:30.396" level="INFO">${variable_value} = 100</msg>
+<status status="PASS" endtime="20201222 16:47:30.396" starttime="20201222 16:47:30.396"></status>
+</kw>
+<kw name="Append To List" library="Collections">
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<arguments>
+<arg>${datalist_sub}</arg>
+<arg>${variable_name}</arg>
+<arg>${variable_value}</arg>
+</arguments>
+<status status="PASS" endtime="20201222 16:47:30.397" starttime="20201222 16:47:30.396"></status>
+</kw>
+<kw name="Append To List" library="Collections">
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<arguments>
+<arg>${datalist_main}</arg>
+<arg>${datalist_sub}</arg>
+</arguments>
+<status status="PASS" endtime="20201222 16:47:30.397" starttime="20201222 16:47:30.397"></status>
+</kw>
+<status status="PASS" endtime="20201222 16:47:30.397" starttime="20201222 16:47:30.297"></status>
+</kw>
+<kw type="foritem" name="${iRow} = 4">
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<assign>
+<var>${datalist_sub}</var>
+</assign>
+<msg timestamp="20201222 16:47:30.398" level="INFO">${datalist_sub} = []</msg>
+<status status="PASS" endtime="20201222 16:47:30.398" starttime="20201222 16:47:30.398"></status>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>Variable Should Not Exist</arg>
+<arg>${api_testname[${iRow}]}</arg>
+</arguments>
+<assign>
+<var>${check_datarow}</var>
+</assign>
+<kw name="Variable Should Not Exist" library="BuiltIn">
+<doc>Fails if the given variable exists within the current scope.</doc>
+<arguments>
+<arg>${api_testname[${iRow}]}</arg>
+</arguments>
+<status status="PASS" endtime="20201222 16:47:30.399" starttime="20201222 16:47:30.398"></status>
+</kw>
+<msg timestamp="20201222 16:47:30.399" level="INFO">${check_datarow} = True</msg>
+<status status="PASS" endtime="20201222 16:47:30.399" starttime="20201222 16:47:30.398"></status>
+</kw>
+<kw name="Continue For Loop If" library="BuiltIn">
+<doc>Skips the current for loop iteration if the ``condition`` is true.</doc>
+<arguments>
+<arg>${check_datarow}</arg>
+</arguments>
+<msg timestamp="20201222 16:47:30.400" level="INFO">Continuing for loop from the next iteration.</msg>
+<status status="PASS" endtime="20201222 16:47:30.400" starttime="20201222 16:47:30.399"></status>
+</kw>
+<status status="PASS" endtime="20201222 16:47:30.400" starttime="20201222 16:47:30.398"></status>
+</kw>
+<status status="PASS" endtime="20201222 16:47:30.400" starttime="20201222 16:47:30.052"></status>
+</kw>
+<kw name="Log List" library="Collections">
+<doc>Logs the length and contents of the ``list`` using given ``level``.</doc>
+<arguments>
+<arg>${datalist_main}</arg>
+</arguments>
+<msg timestamp="20201222 16:47:30.400" level="INFO">List length is 4 and it contains following items:
+0: [u'TestDescription', u'TC001-Cash Payment no Change due']
+1: [u'Add_Value', u'100']
+2: [u'Payment_Mode', u'Cash']
+3: [u'Cash_Amount_Received', u'100']</msg>
+<status status="PASS" endtime="20201222 16:47:30.400" starttime="20201222 16:47:30.400"></status>
+</kw>
+<kw name="Return From Keyword" library="BuiltIn">
+<doc>Returns from the enclosing user keyword.</doc>
+<arguments>
+<arg>${datalist_main}</arg>
+</arguments>
+<msg timestamp="20201222 16:47:30.401" level="INFO">Returning from the enclosing user keyword.</msg>
+<status status="PASS" endtime="20201222 16:47:30.401" starttime="20201222 16:47:30.401"></status>
+</kw>
+<status status="PASS" endtime="20201222 16:47:30.401" starttime="20201222 16:47:30.048"></status>
+</kw>
+<msg timestamp="20201222 16:47:30.401" level="INFO">${list_datatest} = [[u'TestDescription', u'TC001-Cash Payment no Change due'], [u'Add_Value', u'100'], [u'Payment_Mode', u'Cash'], [u'Cash_Amount_Received', u'100']]</msg>
+<status status="PASS" endtime="20201222 16:47:30.401" starttime="20201222 16:47:30.048"></status>
+</kw>
+<kw name="Get Length" library="BuiltIn">
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<arguments>
+<arg>${list_datatest}</arg>
+</arguments>
+<assign>
+<var>${count_datalist}</var>
+</assign>
+<msg timestamp="20201222 16:47:30.402" level="INFO">Length is 4</msg>
+<msg timestamp="20201222 16:47:30.402" level="INFO">${count_datalist} = 4</msg>
+<status status="PASS" endtime="20201222 16:47:30.402" starttime="20201222 16:47:30.402"></status>
+</kw>
+<kw name="Log List" library="Collections">
+<doc>Logs the length and contents of the ``list`` using given ``level``.</doc>
+<arguments>
+<arg>${list_datatest}</arg>
+</arguments>
+<msg timestamp="20201222 16:47:30.402" level="INFO">List length is 4 and it contains following items:
+0: [u'TestDescription', u'TC001-Cash Payment no Change due']
+1: [u'Add_Value', u'100']
+2: [u'Payment_Mode', u'Cash']
+3: [u'Cash_Amount_Received', u'100']</msg>
+<status status="PASS" endtime="20201222 16:47:30.402" starttime="20201222 16:47:30.402"></status>
+</kw>
+<kw name="Verify Test Data Is Empty">
+<arguments>
+<arg>${list_datatest}</arg>
+</arguments>
+<assign>
+<var>${flag_empty}</var>
+</assign>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>0</arg>
+</arguments>
+<assign>
+<var>${count_empty}</var>
+</assign>
+<msg timestamp="20201222 16:47:30.403" level="INFO">${count_empty} = 0</msg>
+<status status="PASS" endtime="20201222 16:47:30.403" starttime="20201222 16:47:30.403"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>0</arg>
+</arguments>
+<assign>
+<var>${count_notempty}</var>
+</assign>
+<msg timestamp="20201222 16:47:30.404" level="INFO">${count_notempty} = 0</msg>
+<status status="PASS" endtime="20201222 16:47:30.404" starttime="20201222 16:47:30.403"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${False}</arg>
+</arguments>
+<assign>
+<var>${flag_testdes}</var>
+</assign>
+<msg timestamp="20201222 16:47:30.404" level="INFO">${flag_testdes} = False</msg>
+<status status="PASS" endtime="20201222 16:47:30.404" starttime="20201222 16:47:30.404"></status>
+</kw>
+<kw name="Get Length" library="BuiltIn">
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<arguments>
+<arg>${data_test}</arg>
+</arguments>
+<assign>
+<var>${datalist_length}</var>
+</assign>
+<msg timestamp="20201222 16:47:30.405" level="INFO">Length is 4</msg>
+<msg timestamp="20201222 16:47:30.405" level="INFO">${datalist_length} = 4</msg>
+<status status="PASS" endtime="20201222 16:47:30.405" starttime="20201222 16:47:30.404"></status>
+</kw>
+<kw type="for" name="${iList} IN RANGE [ 0 | ${datalist_length} ]">
+<kw type="foritem" name="${iList} = 0">
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${data_test[${iList}]}</arg>
+</arguments>
+<assign>
+<var>${list_variable}</var>
+</assign>
+<msg timestamp="20201222 16:47:30.406" level="INFO">${list_variable} = [u'TestDescription', u'TC001-Cash Payment no Change due']</msg>
+<status status="PASS" endtime="20201222 16:47:30.406" starttime="20201222 16:47:30.405"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${list_variable[0].strip()}</arg>
+</arguments>
+<assign>
+<var>${variable_name}</var>
+</assign>
+<msg timestamp="20201222 16:47:30.406" level="INFO">${variable_name} = TestDescription</msg>
+<status status="PASS" endtime="20201222 16:47:30.406" starttime="20201222 16:47:30.406"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${list_variable[1].strip()}</arg>
+</arguments>
+<assign>
+<var>${variable_value}</var>
+</assign>
+<msg timestamp="20201222 16:47:30.407" level="INFO">${variable_value} = TC001-Cash Payment no Change due</msg>
+<status status="PASS" endtime="20201222 16:47:30.407" starttime="20201222 16:47:30.407"></status>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>Should Be Equal</arg>
+<arg>${variable_name.strip().upper()}</arg>
+<arg>${TestDescription_Param}</arg>
+</arguments>
+<assign>
+<var>${check_testdes}</var>
+</assign>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${variable_name.strip().upper()}</arg>
+<arg>${TestDescription_Param}</arg>
+</arguments>
+<msg timestamp="20201222 16:47:30.421" level="FAIL">Variable '${TestDescription_Param}' not found.</msg>
+<msg timestamp="20201222 16:47:30.425" level="INFO">whitelib_screenshot_94.png</msg>
+<msg timestamp="20201222 16:47:30.426" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="whitelib_screenshot_94.png"&gt;&lt;img src="whitelib_screenshot_94.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="FAIL" endtime="20201222 16:47:30.421" starttime="20201222 16:47:30.419"></status>
+</kw>
+<msg timestamp="20201222 16:47:30.489" level="INFO">${check_testdes} = False</msg>
+<status status="PASS" endtime="20201222 16:47:30.489" starttime="20201222 16:47:30.419"></status>
+</kw>
+<kw name="Set Variable If" library="BuiltIn">
+<doc>Sets variable based on the given condition.</doc>
+<arguments>
+<arg>${check_testdes}</arg>
+<arg>${True}</arg>
+<arg>${flag_testdes}</arg>
+</arguments>
+<assign>
+<var>${flag_testdes}</var>
+</assign>
+<msg timestamp="20201222 16:47:30.490" level="INFO">${flag_testdes} = False</msg>
+<status status="PASS" endtime="20201222 16:47:30.490" starttime="20201222 16:47:30.489"></status>
+</kw>
+<kw name="Continue For Loop If" library="BuiltIn">
+<doc>Skips the current for loop iteration if the ``condition`` is true.</doc>
+<arguments>
+<arg>${check_testdes}</arg>
+</arguments>
+<status status="PASS" endtime="20201222 16:47:30.490" starttime="20201222 16:47:30.490"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${variable_value}' == '${EMPTY}' or '${variable_value}' == '${NULL}' or '${variable_value}' == '${SPACE}'</arg>
+<arg>Evaluate</arg>
+<arg>int(${count_empty})+1</arg>
+<arg>ELSE</arg>
+<arg>Set Variable</arg>
+<arg>${count_empty}</arg>
+</arguments>
+<assign>
+<var>${count_empty}</var>
+</assign>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${count_empty}</arg>
+</arguments>
+<status status="PASS" endtime="20201222 16:47:30.491" starttime="20201222 16:47:30.491"></status>
+</kw>
+<msg timestamp="20201222 16:47:30.492" level="INFO">${count_empty} = 0</msg>
+<status status="PASS" endtime="20201222 16:47:30.492" starttime="20201222 16:47:30.490"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${variable_value}' != '${EMPTY}' and '${variable_value}' != '${NULL}' and '${variable_value}' != '${SPACE}'</arg>
+<arg>Evaluate</arg>
+<arg>int(${count_notempty})+1</arg>
+<arg>ELSE</arg>
+<arg>Set Variable</arg>
+<arg>${count_notempty}</arg>
+</arguments>
+<assign>
+<var>${count_notempty}</var>
+</assign>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>int(${count_notempty})+1</arg>
+</arguments>
+<status status="PASS" endtime="20201222 16:47:30.493" starttime="20201222 16:47:30.493"></status>
+</kw>
+<msg timestamp="20201222 16:47:30.493" level="INFO">${count_notempty} = 1</msg>
+<status status="PASS" endtime="20201222 16:47:30.493" starttime="20201222 16:47:30.492"></status>
+</kw>
+<status status="PASS" endtime="20201222 16:47:30.493" starttime="20201222 16:47:30.405"></status>
+</kw>
+<kw type="foritem" name="${iList} = 1">
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${data_test[${iList}]}</arg>
+</arguments>
+<assign>
+<var>${list_variable}</var>
+</assign>
+<msg timestamp="20201222 16:47:30.494" level="INFO">${list_variable} = [u'Add_Value', u'100']</msg>
+<status status="PASS" endtime="20201222 16:47:30.494" starttime="20201222 16:47:30.493"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${list_variable[0].strip()}</arg>
+</arguments>
+<assign>
+<var>${variable_name}</var>
+</assign>
+<msg timestamp="20201222 16:47:30.495" level="INFO">${variable_name} = Add_Value</msg>
+<status status="PASS" endtime="20201222 16:47:30.495" starttime="20201222 16:47:30.494"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${list_variable[1].strip()}</arg>
+</arguments>
+<assign>
+<var>${variable_value}</var>
+</assign>
+<msg timestamp="20201222 16:47:30.495" level="INFO">${variable_value} = 100</msg>
+<status status="PASS" endtime="20201222 16:47:30.495" starttime="20201222 16:47:30.495"></status>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>Should Be Equal</arg>
+<arg>${variable_name.strip().upper()}</arg>
+<arg>${TestDescription_Param}</arg>
+</arguments>
+<assign>
+<var>${check_testdes}</var>
+</assign>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${variable_name.strip().upper()}</arg>
+<arg>${TestDescription_Param}</arg>
+</arguments>
+<msg timestamp="20201222 16:47:30.497" level="FAIL">Variable '${TestDescription_Param}' not found.</msg>
+<msg timestamp="20201222 16:47:30.502" level="INFO">whitelib_screenshot_95.png</msg>
+<msg timestamp="20201222 16:47:30.502" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="whitelib_screenshot_95.png"&gt;&lt;img src="whitelib_screenshot_95.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="FAIL" endtime="20201222 16:47:30.498" starttime="20201222 16:47:30.496"></status>
+</kw>
+<msg timestamp="20201222 16:47:30.592" level="INFO">${check_testdes} = False</msg>
+<status status="PASS" endtime="20201222 16:47:30.592" starttime="20201222 16:47:30.495"></status>
+</kw>
+<kw name="Set Variable If" library="BuiltIn">
+<doc>Sets variable based on the given condition.</doc>
+<arguments>
+<arg>${check_testdes}</arg>
+<arg>${True}</arg>
+<arg>${flag_testdes}</arg>
+</arguments>
+<assign>
+<var>${flag_testdes}</var>
+</assign>
+<msg timestamp="20201222 16:47:30.593" level="INFO">${flag_testdes} = False</msg>
+<status status="PASS" endtime="20201222 16:47:30.593" starttime="20201222 16:47:30.593"></status>
+</kw>
+<kw name="Continue For Loop If" library="BuiltIn">
+<doc>Skips the current for loop iteration if the ``condition`` is true.</doc>
+<arguments>
+<arg>${check_testdes}</arg>
+</arguments>
+<status status="PASS" endtime="20201222 16:47:30.593" starttime="20201222 16:47:30.593"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${variable_value}' == '${EMPTY}' or '${variable_value}' == '${NULL}' or '${variable_value}' == '${SPACE}'</arg>
+<arg>Evaluate</arg>
+<arg>int(${count_empty})+1</arg>
+<arg>ELSE</arg>
+<arg>Set Variable</arg>
+<arg>${count_empty}</arg>
+</arguments>
+<assign>
+<var>${count_empty}</var>
+</assign>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${count_empty}</arg>
+</arguments>
+<status status="PASS" endtime="20201222 16:47:30.595" starttime="20201222 16:47:30.594"></status>
+</kw>
+<msg timestamp="20201222 16:47:30.595" level="INFO">${count_empty} = 0</msg>
+<status status="PASS" endtime="20201222 16:47:30.595" starttime="20201222 16:47:30.594"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${variable_value}' != '${EMPTY}' and '${variable_value}' != '${NULL}' and '${variable_value}' != '${SPACE}'</arg>
+<arg>Evaluate</arg>
+<arg>int(${count_notempty})+1</arg>
+<arg>ELSE</arg>
+<arg>Set Variable</arg>
+<arg>${count_notempty}</arg>
+</arguments>
+<assign>
+<var>${count_notempty}</var>
+</assign>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>int(${count_notempty})+1</arg>
+</arguments>
+<status status="PASS" endtime="20201222 16:47:30.596" starttime="20201222 16:47:30.596"></status>
+</kw>
+<msg timestamp="20201222 16:47:30.596" level="INFO">${count_notempty} = 2</msg>
+<status status="PASS" endtime="20201222 16:47:30.596" starttime="20201222 16:47:30.595"></status>
+</kw>
+<status status="PASS" endtime="20201222 16:47:30.597" starttime="20201222 16:47:30.493"></status>
+</kw>
+<kw type="foritem" name="${iList} = 2">
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${data_test[${iList}]}</arg>
+</arguments>
+<assign>
+<var>${list_variable}</var>
+</assign>
+<msg timestamp="20201222 16:47:30.597" level="INFO">${list_variable} = [u'Payment_Mode', u'Cash']</msg>
+<status status="PASS" endtime="20201222 16:47:30.597" starttime="20201222 16:47:30.597"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${list_variable[0].strip()}</arg>
+</arguments>
+<assign>
+<var>${variable_name}</var>
+</assign>
+<msg timestamp="20201222 16:47:30.598" level="INFO">${variable_name} = Payment_Mode</msg>
+<status status="PASS" endtime="20201222 16:47:30.598" starttime="20201222 16:47:30.597"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${list_variable[1].strip()}</arg>
+</arguments>
+<assign>
+<var>${variable_value}</var>
+</assign>
+<msg timestamp="20201222 16:47:30.598" level="INFO">${variable_value} = Cash</msg>
+<status status="PASS" endtime="20201222 16:47:30.599" starttime="20201222 16:47:30.598"></status>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>Should Be Equal</arg>
+<arg>${variable_name.strip().upper()}</arg>
+<arg>${TestDescription_Param}</arg>
+</arguments>
+<assign>
+<var>${check_testdes}</var>
+</assign>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${variable_name.strip().upper()}</arg>
+<arg>${TestDescription_Param}</arg>
+</arguments>
+<msg timestamp="20201222 16:47:30.601" level="FAIL">Variable '${TestDescription_Param}' not found.</msg>
+<msg timestamp="20201222 16:47:30.606" level="INFO">whitelib_screenshot_96.png</msg>
+<msg timestamp="20201222 16:47:30.606" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="whitelib_screenshot_96.png"&gt;&lt;img src="whitelib_screenshot_96.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="FAIL" endtime="20201222 16:47:30.601" starttime="20201222 16:47:30.599"></status>
+</kw>
+<msg timestamp="20201222 16:47:30.672" level="INFO">${check_testdes} = False</msg>
+<status status="PASS" endtime="20201222 16:47:30.672" starttime="20201222 16:47:30.599"></status>
+</kw>
+<kw name="Set Variable If" library="BuiltIn">
+<doc>Sets variable based on the given condition.</doc>
+<arguments>
+<arg>${check_testdes}</arg>
+<arg>${True}</arg>
+<arg>${flag_testdes}</arg>
+</arguments>
+<assign>
+<var>${flag_testdes}</var>
+</assign>
+<msg timestamp="20201222 16:47:30.673" level="INFO">${flag_testdes} = False</msg>
+<status status="PASS" endtime="20201222 16:47:30.673" starttime="20201222 16:47:30.672"></status>
+</kw>
+<kw name="Continue For Loop If" library="BuiltIn">
+<doc>Skips the current for loop iteration if the ``condition`` is true.</doc>
+<arguments>
+<arg>${check_testdes}</arg>
+</arguments>
+<status status="PASS" endtime="20201222 16:47:30.673" starttime="20201222 16:47:30.673"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${variable_value}' == '${EMPTY}' or '${variable_value}' == '${NULL}' or '${variable_value}' == '${SPACE}'</arg>
+<arg>Evaluate</arg>
+<arg>int(${count_empty})+1</arg>
+<arg>ELSE</arg>
+<arg>Set Variable</arg>
+<arg>${count_empty}</arg>
+</arguments>
+<assign>
+<var>${count_empty}</var>
+</assign>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${count_empty}</arg>
+</arguments>
+<status status="PASS" endtime="20201222 16:47:30.674" starttime="20201222 16:47:30.674"></status>
+</kw>
+<msg timestamp="20201222 16:47:30.674" level="INFO">${count_empty} = 0</msg>
+<status status="PASS" endtime="20201222 16:47:30.674" starttime="20201222 16:47:30.673"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${variable_value}' != '${EMPTY}' and '${variable_value}' != '${NULL}' and '${variable_value}' != '${SPACE}'</arg>
+<arg>Evaluate</arg>
+<arg>int(${count_notempty})+1</arg>
+<arg>ELSE</arg>
+<arg>Set Variable</arg>
+<arg>${count_notempty}</arg>
+</arguments>
+<assign>
+<var>${count_notempty}</var>
+</assign>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>int(${count_notempty})+1</arg>
+</arguments>
+<status status="PASS" endtime="20201222 16:47:30.676" starttime="20201222 16:47:30.675"></status>
+</kw>
+<msg timestamp="20201222 16:47:30.676" level="INFO">${count_notempty} = 3</msg>
+<status status="PASS" endtime="20201222 16:47:30.676" starttime="20201222 16:47:30.675"></status>
+</kw>
+<status status="PASS" endtime="20201222 16:47:30.676" starttime="20201222 16:47:30.597"></status>
+</kw>
+<kw type="foritem" name="${iList} = 3">
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${data_test[${iList}]}</arg>
+</arguments>
+<assign>
+<var>${list_variable}</var>
+</assign>
+<msg timestamp="20201222 16:47:30.677" level="INFO">${list_variable} = [u'Cash_Amount_Received', u'100']</msg>
+<status status="PASS" endtime="20201222 16:47:30.677" starttime="20201222 16:47:30.676"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${list_variable[0].strip()}</arg>
+</arguments>
+<assign>
+<var>${variable_name}</var>
+</assign>
+<msg timestamp="20201222 16:47:30.677" level="INFO">${variable_name} = Cash_Amount_Received</msg>
+<status status="PASS" endtime="20201222 16:47:30.677" starttime="20201222 16:47:30.677"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${list_variable[1].strip()}</arg>
+</arguments>
+<assign>
+<var>${variable_value}</var>
+</assign>
+<msg timestamp="20201222 16:47:30.678" level="INFO">${variable_value} = 100</msg>
+<status status="PASS" endtime="20201222 16:47:30.678" starttime="20201222 16:47:30.678"></status>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>Should Be Equal</arg>
+<arg>${variable_name.strip().upper()}</arg>
+<arg>${TestDescription_Param}</arg>
+</arguments>
+<assign>
+<var>${check_testdes}</var>
+</assign>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${variable_name.strip().upper()}</arg>
+<arg>${TestDescription_Param}</arg>
+</arguments>
+<msg timestamp="20201222 16:47:30.680" level="FAIL">Variable '${TestDescription_Param}' not found.</msg>
+<msg timestamp="20201222 16:47:30.685" level="INFO">whitelib_screenshot_97.png</msg>
+<msg timestamp="20201222 16:47:30.685" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="whitelib_screenshot_97.png"&gt;&lt;img src="whitelib_screenshot_97.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="FAIL" endtime="20201222 16:47:30.680" starttime="20201222 16:47:30.678"></status>
+</kw>
+<msg timestamp="20201222 16:47:30.756" level="INFO">${check_testdes} = False</msg>
+<status status="PASS" endtime="20201222 16:47:30.756" starttime="20201222 16:47:30.678"></status>
+</kw>
+<kw name="Set Variable If" library="BuiltIn">
+<doc>Sets variable based on the given condition.</doc>
+<arguments>
+<arg>${check_testdes}</arg>
+<arg>${True}</arg>
+<arg>${flag_testdes}</arg>
+</arguments>
+<assign>
+<var>${flag_testdes}</var>
+</assign>
+<msg timestamp="20201222 16:47:30.756" level="INFO">${flag_testdes} = False</msg>
+<status status="PASS" endtime="20201222 16:47:30.757" starttime="20201222 16:47:30.756"></status>
+</kw>
+<kw name="Continue For Loop If" library="BuiltIn">
+<doc>Skips the current for loop iteration if the ``condition`` is true.</doc>
+<arguments>
+<arg>${check_testdes}</arg>
+</arguments>
+<status status="PASS" endtime="20201222 16:47:30.757" starttime="20201222 16:47:30.757"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${variable_value}' == '${EMPTY}' or '${variable_value}' == '${NULL}' or '${variable_value}' == '${SPACE}'</arg>
+<arg>Evaluate</arg>
+<arg>int(${count_empty})+1</arg>
+<arg>ELSE</arg>
+<arg>Set Variable</arg>
+<arg>${count_empty}</arg>
+</arguments>
+<assign>
+<var>${count_empty}</var>
+</assign>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${count_empty}</arg>
+</arguments>
+<status status="PASS" endtime="20201222 16:47:30.758" starttime="20201222 16:47:30.758"></status>
+</kw>
+<msg timestamp="20201222 16:47:30.758" level="INFO">${count_empty} = 0</msg>
+<status status="PASS" endtime="20201222 16:47:30.758" starttime="20201222 16:47:30.757"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${variable_value}' != '${EMPTY}' and '${variable_value}' != '${NULL}' and '${variable_value}' != '${SPACE}'</arg>
+<arg>Evaluate</arg>
+<arg>int(${count_notempty})+1</arg>
+<arg>ELSE</arg>
+<arg>Set Variable</arg>
+<arg>${count_notempty}</arg>
+</arguments>
+<assign>
+<var>${count_notempty}</var>
+</assign>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>int(${count_notempty})+1</arg>
+</arguments>
+<status status="PASS" endtime="20201222 16:47:30.760" starttime="20201222 16:47:30.759"></status>
+</kw>
+<msg timestamp="20201222 16:47:30.760" level="INFO">${count_notempty} = 4</msg>
+<status status="PASS" endtime="20201222 16:47:30.760" starttime="20201222 16:47:30.759"></status>
+</kw>
+<status status="PASS" endtime="20201222 16:47:30.760" starttime="20201222 16:47:30.676"></status>
+</kw>
+<status status="PASS" endtime="20201222 16:47:30.760" starttime="20201222 16:47:30.405"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${flag_testdes}</arg>
+<arg>Evaluate</arg>
+<arg>int(${datalist_length})-1</arg>
+<arg>ELSE</arg>
+<arg>Set Variable</arg>
+<arg>${datalist_length}</arg>
+</arguments>
+<assign>
+<var>${data_total}</var>
+</assign>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${datalist_length}</arg>
+</arguments>
+<status status="PASS" endtime="20201222 16:47:30.761" starttime="20201222 16:47:30.761"></status>
+</kw>
+<msg timestamp="20201222 16:47:30.761" level="INFO">${data_total} = 4</msg>
+<status status="PASS" endtime="20201222 16:47:30.761" starttime="20201222 16:47:30.760"></status>
+</kw>
+<kw name="Set Variable If" library="BuiltIn">
+<doc>Sets variable based on the given condition.</doc>
+<arguments>
+<arg>'${data_total}' == '${count_empty}'</arg>
+<arg>${True}</arg>
+<arg>${False}</arg>
+</arguments>
+<assign>
+<var>${flag_checked}</var>
+</assign>
+<msg timestamp="20201222 16:47:30.762" level="INFO">${flag_checked} = False</msg>
+<status status="PASS" endtime="20201222 16:47:30.762" starttime="20201222 16:47:30.761"></status>
+</kw>
+<kw name="Return From Keyword If" library="BuiltIn">
+<doc>Returns from the enclosing user keyword if ``condition`` is true.</doc>
+<arguments>
+<arg>${flag_checked} == ${True}</arg>
+<arg>${True}</arg>
+</arguments>
+<status status="PASS" endtime="20201222 16:47:30.762" starttime="20201222 16:47:30.762"></status>
+</kw>
+<kw name="Return From Keyword If" library="BuiltIn">
+<doc>Returns from the enclosing user keyword if ``condition`` is true.</doc>
+<arguments>
+<arg>${flag_checked} == ${False}</arg>
+<arg>${False}</arg>
+</arguments>
+<msg timestamp="20201222 16:47:30.763" level="INFO">Returning from the enclosing user keyword.</msg>
+<status status="PASS" endtime="20201222 16:47:30.763" starttime="20201222 16:47:30.762"></status>
+</kw>
+<msg timestamp="20201222 16:47:30.763" level="INFO">${flag_empty} = False</msg>
+<status status="PASS" endtime="20201222 16:47:30.763" starttime="20201222 16:47:30.403"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${count_datalist} != 0 and ${flag_empty} == ${False}</arg>
+<arg>Append To List</arg>
+<arg>${listdata_api}</arg>
+<arg>${list_datatest}</arg>
+</arguments>
+<kw name="Append To List" library="Collections">
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<arguments>
+<arg>${listdata_api}</arg>
+<arg>${list_datatest}</arg>
+</arguments>
+<status status="PASS" endtime="20201222 16:47:30.764" starttime="20201222 16:47:30.764"></status>
+</kw>
+<status status="PASS" endtime="20201222 16:47:30.764" starttime="20201222 16:47:30.763"></status>
+</kw>
+<status status="PASS" endtime="20201222 16:47:30.764" starttime="20201222 16:47:29.956"></status>
+</kw>
+<status status="PASS" endtime="20201222 16:47:30.765" starttime="20201222 16:47:29.955"></status>
+</kw>
+<kw name="Log List" library="Collections">
+<doc>Logs the length and contents of the ``list`` using given ``level``.</doc>
+<arguments>
+<arg>${listdata_api}</arg>
+</arguments>
+<msg timestamp="20201222 16:47:30.765" level="INFO">List has one item:
+[[u'TestDescription', u'TC001-Cash Payment no Change due'], [u'Add_Value', u'100'], [u'Payment_Mode', u'Cash'], [u'Cash_Amount_Received', u'100']]</msg>
+<status status="PASS" endtime="20201222 16:47:30.765" starttime="20201222 16:47:30.765"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${listdata_api}</arg>
+</arguments>
+<msg timestamp="20201222 16:47:30.766" level="INFO">[[[u'TestDescription', u'TC001-Cash Payment no Change due'], [u'Add_Value', u'100'], [u'Payment_Mode', u'Cash'], [u'Cash_Amount_Received', u'100']]]</msg>
+<status status="PASS" endtime="20201222 16:47:30.766" starttime="20201222 16:47:30.765"></status>
+</kw>
+<kw name="Return From Keyword" library="BuiltIn">
+<doc>Returns from the enclosing user keyword.</doc>
+<arguments>
+<arg>${listdata_api}</arg>
+</arguments>
+<msg timestamp="20201222 16:47:30.766" level="INFO">Returning from the enclosing user keyword.</msg>
+<status status="PASS" endtime="20201222 16:47:30.766" starttime="20201222 16:47:30.766"></status>
+</kw>
+<msg timestamp="20201222 16:47:30.766" level="INFO">@{TestDataRequest} = [ [[u'TestDescription', u'TC001-Cash Payment no Change due'], [u'Add_Value', u'100'], [u'Payment_Mode', u'Cash'], [u'Cash_Amount_Received', u'100']] ]</msg>
+<status status="PASS" endtime="20201222 16:47:30.766" starttime="20201222 16:47:29.940"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>@{TestDataRequest}</arg>
+</arguments>
+<msg timestamp="20201222 16:47:30.767" level="INFO">@{TestDataRequest} = [ [[u'TestDescription', u'TC001-Cash Payment no Change due'], [u'Add_Value', u'100'], [u'Payment_Mode', u'Cash'], [u'Cash_Amount_Received', u'100']] ]</msg>
+<status status="PASS" endtime="20201222 16:47:30.767" starttime="20201222 16:47:30.767"></status>
+</kw>
+<status status="PASS" endtime="20201222 16:47:30.767" starttime="20201222 16:47:29.907"></status>
+</kw>
+<kw name="Copy File" library="OperatingSystem">
+<doc>Copies the source file into the destination.</doc>
+<arguments>
+<arg>${dir_PD_BSS_CSPA_Flie}</arg>
+<arg>${dir_PD_Parameters_config}</arg>
+</arguments>
+<msg timestamp="20201222 16:47:30.771" html="yes" level="INFO">Copied file from '&lt;a href="file://C:\Users\THANATHIP N\TestCase\Backupsimreader\BSS_CSPA_Normal\BSS_CSPA.SYS"&gt;C:\Users\THANATHIP N\TestCase\Backupsimreader\BSS_CSPA_Normal\BSS_CSPA.SYS&lt;/a&gt;' to '&lt;a href="file://C:\AFC\POST\Parameters\Active\BSS_CSPA.SYS"&gt;C:\AFC\POST\Parameters\Active\BSS_CSPA.SYS&lt;/a&gt;'.</msg>
+<status status="PASS" endtime="20201222 16:47:30.771" starttime="20201222 16:47:30.768"></status>
+</kw>
+<kw name="login POST Application">
+<kw name="Launch Application" library="WhiteLibrary">
+<doc>Launches an application.</doc>
+<arguments>
+<arg>${POSTAPP_PATH}</arg>
+</arguments>
+<status status="PASS" endtime="20201222 16:47:30.861" starttime="20201222 16:47:30.772"></status>
+</kw>
+<kw name="Attach Window" library="WhiteLibrary">
+<doc>Attaches WhiteLibrary to a window.</doc>
+<arguments>
+<arg>id:MainWindow</arg>
+</arguments>
+<status status="PASS" endtime="20201222 16:47:31.704" starttime="20201222 16:47:30.862"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>3s</arg>
+</arguments>
+<msg timestamp="20201222 16:47:34.705" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" endtime="20201222 16:47:34.705" starttime="20201222 16:47:31.704"></status>
+</kw>
+<kw name="Attach Window" library="WhiteLibrary">
+<doc>Attaches WhiteLibrary to a window.</doc>
+<arguments>
+<arg>${Warning_Dialog}</arg>
+</arguments>
+<status status="PASS" endtime="20201222 16:47:40.197" starttime="20201222 16:47:34.707"></status>
+</kw>
+<kw name="Click Button" library="WhiteLibrary">
+<doc>Clicks a button.</doc>
+<arguments>
+<arg>${Warning_OKButton}</arg>
+</arguments>
+<status status="PASS" endtime="20201222 16:47:40.541" starttime="20201222 16:47:40.197"></status>
+</kw>
+<kw name="Attach Window" library="WhiteLibrary">
+<doc>Attaches WhiteLibrary to a window.</doc>
+<arguments>
+<arg>id:MainWindow</arg>
+</arguments>
+<status status="PASS" endtime="20201222 16:47:40.555" starttime="20201222 16:47:40.541"></status>
+</kw>
+<kw name="Input Text To Textbox" library="WhiteLibrary">
+<doc>Writes text to a textbox.</doc>
+<arguments>
+<arg>${Path_userid}</arg>
+<arg>${POST_USER}</arg>
+</arguments>
+<status status="PASS" endtime="20201222 16:47:40.671" starttime="20201222 16:47:40.555"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>3s</arg>
+</arguments>
+<msg timestamp="20201222 16:47:43.682" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" endtime="20201222 16:47:43.682" starttime="20201222 16:47:40.671"></status>
+</kw>
+<kw name="Input Text To Textbox" library="WhiteLibrary">
+<doc>Writes text to a textbox.</doc>
+<arguments>
+<arg>${Path_Password}</arg>
+<arg>${POST_PASS}</arg>
+</arguments>
+<status status="PASS" endtime="20201222 16:47:43.776" starttime="20201222 16:47:43.683"></status>
+</kw>
+<kw name="Click Button" library="WhiteLibrary">
+<doc>Clicks a button.</doc>
+<arguments>
+<arg>${Path_LoginButton}</arg>
+</arguments>
+<status status="PASS" endtime="20201222 16:47:44.109" starttime="20201222 16:47:43.776"></status>
+</kw>
+<kw name="Attach Window" library="WhiteLibrary">
+<doc>Attaches WhiteLibrary to a window.</doc>
+<arguments>
+<arg>id:MainWindow</arg>
+</arguments>
+<status status="PASS" endtime="20201222 16:47:44.144" starttime="20201222 16:47:44.110"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2s</arg>
+</arguments>
+<msg timestamp="20201222 16:47:46.153" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" endtime="20201222 16:47:46.153" starttime="20201222 16:47:44.145"></status>
+</kw>
+<kw name="Verify Label" library="WhiteLibrary">
+<doc>Verifies text of a label.</doc>
+<arguments>
+<arg>${Path_UserIDValue}</arg>
+<arg>${POST_USER}</arg>
+</arguments>
+<msg timestamp="20201222 16:47:46.249" level="FAIL">Expected value 65537, but found </msg>
+<msg timestamp="20201222 16:47:46.254" level="INFO">whitelib_screenshot_98.png</msg>
+<msg timestamp="20201222 16:47:46.254" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="whitelib_screenshot_98.png"&gt;&lt;img src="whitelib_screenshot_98.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="FAIL" endtime="20201222 16:47:46.249" starttime="20201222 16:47:46.154"></status>
+</kw>
+<msg timestamp="20201222 16:47:46.366" level="INFO">whitelib_screenshot_99.png</msg>
+<msg timestamp="20201222 16:47:46.367" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="whitelib_screenshot_99.png"&gt;&lt;img src="whitelib_screenshot_99.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="FAIL" endtime="20201222 16:47:46.362" starttime="20201222 16:47:30.772"></status>
+</kw>
+<status status="FAIL" endtime="20201222 16:47:46.476" critical="yes" starttime="20201222 16:47:29.906">Expected value 65537, but found </status>
+</test>
+<status status="FAIL" endtime="20201222 16:47:46.482" starttime="20201222 16:47:29.072"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="1" pass="0">Critical Tests</stat>
+<stat fail="1" pass="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="1" id="s1" name="TS001 EN Reversal Cash Payment" pass="0">TS001 EN Reversal Cash Payment</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
